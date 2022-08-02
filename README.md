@@ -10,9 +10,10 @@ Orginal code for year 2018 run time:
 
 Refractored code for year 2017 run time:
 
-<img width="251" alt="2017r" src="https://user-images.githubusercontent.com/108419097/182450341-757fce15-7332-4b8d-9233-821acf8f04d7.png">
+<img width="251" alt="VBA_Challenge_2017" src="https://user-images.githubusercontent.com/108419097/182451381-ed9b69b4-5ea8-4e24-a62a-ea4dc8b139bb.png">
+
 
 Regractored code for year 2018 run time:
 
-<img width="259" alt="2018r" src="https://user-images.githubusercontent.com/108419097/182449952-64467a5b-b539-4c2c-8175-2cfdb1105b3e.png">
+<img width="259" alt="VBA_Challenge_2018" src="https://user-images.githubusercontent.com/108419097/182451393-4877bde6-ad32-470b-b207-c85608ab98bb.png">
 
