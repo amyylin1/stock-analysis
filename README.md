@@ -1,13 +1,16 @@
 # stock-analysis
 
-## 1. Overview of Project:  Explain the purpose of this analysis.
+## 1. Overview of Project:  Explain the purpose of this analysis
 
-   I helped Steve to prepare a VBA script to analyze the performace of a dozen stocks.  The purpose of this analysis is to refactoring the original code, so that more stocks can be analyzed with less time.  
+   The background of the project is to prepare a VBA script to analyze the performace of a dozen stocks on the spreadsheet.  Since computing time is precious and stock market have thousands of stocks.   The purpose of this analysis is to make the original code run more efficently, so that more stocks can be analyzed with less time.  
 
 
 ## 2.  Results:  
 
-Orginal code
+Orginal code 
+   contains a nested loops
+
+The refactored code 
 
    
 
