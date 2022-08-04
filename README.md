@@ -1,16 +1,121 @@
-# stock-analysis
+# Stock-Analysis
 
 ## 1. Overview of Project:  Explain the purpose of this analysis
 
    The background of the project is to prepare a VBA script to analyze the performace of a dozen stocks on the spreadsheet.  Since computing time is precious and stock market have thousands of stocks.   The purpose of this analysis is to make the original code run more efficently, so that more stocks can be analyzed with less time.  
-
+  
 
 ## 2.  Results:  
 
-Orginal code 
-   contains a nested loops
+### The original code 
 
-The refactored code 
+The oringal code contains an outer loop, "i", that will iterate the tickers from 0 to 11.  It has an inner loop, "j", that will iterate all the rows from 2 to the last one.  For each of the row, it will undergo three "If ... Then" statements, to check for "the current ticker volumn", "starting price" and "ending price" before it loops over to the next row.  Once the inner loop loops through all the "j"s.  It will start the next "i" and start the process all over time.  This is why it take longer computation time.  
+
+         
+          '4) Loop through tickers
+
+          For i = 0 To 11
+          ticker = tickers(i)
+          totalVolume = 0
+
+          '5) loop through rows in the data
+
+          Worksheets("2018").Activate
+
+          For j = 2 To RowCount
+              '5a) Get total volume for current ticker
+              If Cells(j, 1).Value = ticker Then
+
+                  totalVolume = totalVolume + Cells(j, 8).Value
+
+              End If
+              '5b) get starting price for current ticker
+              If Cells(j - 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+
+                  startingPrice = Cells(j, 6).Value
+
+              End If
+
+              '5c) get ending price for current ticker
+              If Cells(j + 1, 1).Value <> ticker And Cells(j, 1).Value = ticker Then
+
+                  endingPrice = Cells(j, 6).Value
+
+              End If
+          Next j
+          '6) Output data for current ticker
+          Worksheets("All Stocks Analysis").Activate
+          Cells(4 + i, 1).Value = ticker
+          Cells(4 + i, 2).Value = totalVolume
+          Cells(4 + i, 3).Value = endingPrice / startingPrice - 1
+
+      Next i
+
+
+### Refactored code
+
+The refactored code is faster because.
+
+    '1a) Create a ticker Index
+       tickerIndex = 0
+       
+
+    '1b) Create three output arrays
+    Dim tickerVolumes(11) As Long
+    Dim tickerStartingPrices(11) As Single
+    Dim tickerEndingPrices(11) As Single
+    
+    ''2a) Create a for loop to initialize the tickerVolumes to zero.
+    For i = 0 To 11
+        tickerVolumes(i) = 
+    Next
+           
+    ''2b) Loop over all the rows in the spreadsheet.
+    For i = 2 To RowCount
+        
+        ticker = tickers(tickerIndex)
+        
+        '3a) Increase volume for current ticker
+        If Cells(i, 1).Value = ticker Then
+        
+            tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+        
+        End If
+        
+        '3b) Check if the current row is the first row with the selected tickerIndex.
+      
+        If Cells(i - 1, 1).Value <> ticker And Cells(i, 1).Value = ticker Then
+
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+        
+        End If
+            
+        
+        '3c) check if the current row is the last row with the selected ticker
+         'If the next row’s ticker doesn’t match, increase the tickerIndex.
+         'If  Then
+         
+          If Cells(i + 1, 1).Value <> ticker And Cells(i, 1).Value = ticker Then
+
+                tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+
+         
+        '3d Increase the tickerIndex.
+            
+            tickerIndex = tickerIndex + 1
+            
+        End If
+            
+    Next i
+    
+   '4) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
+ 
+    For i = 0 To 11
+        Worksheets("All Stocks Analysis").Activate
+        Cells(4 + i, 1).Value = tickers(i)
+        Cells(4 + i, 2).Value = tickerVolumes(i)
+        Cells(4 + i, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
+    Next
 
    
 
