@@ -149,4 +149,8 @@ Compared to the original code, the refactored code is about 3-times faster.
 
 ## Summary
 
- 
+
+The refactored code is more efficient.  All of the variables are in arrays, therefore, the output is easier and the code runs faster.  However, the refactored code is more complex.  It is harder to de-construct and de-bugged.   The array output also makes it difficult to track all of the intermediate calculations.  
+
+In contrast, the original code is slower.   The variables are not in arrays, therefore, calculations and outputs are executed simultaneously.  Hence, the longer execution time.  However, it is a cleaner code and easy to de-bugged.  
+
