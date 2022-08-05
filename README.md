@@ -9,9 +9,9 @@
 
 ### The original code 
 
-The oringal code contains an outer loop, "i", that will iterate the tickers from 0 to 11.  It has an inner loop, "j", that will iterate all the rows from 2 to the last one.  For each of the row, it will undergo three "If ... Then" statements, to check for "the current ticker volumn", "starting price" and "ending price" before it loops over to the next row.  Once the inner loop loops through all the "j"s.  It will start the next "i" and start the process all over time.  This is why it take longer computation time.  
+The oringal code is less efficient because of its nested loop.  The code contains an outer loop, "i", that will iterate the tickers from 0 to 11. Here, the "totalVolume" is set to zero, so that it will reset for each outer loop.  The code also has an inner loop, "j", that will iterate all the rows from 2 to the last row.  For each of the row, it will undergo three "If ... Then" conditional statements, to check for "the current ticker volumn", "starting price" and "ending price" before it loops over to the next row.  Once the inner loop loops through all the rows.  It will start the next outer loop "i" , and repeat the code over and over again till i = 11.  This nested loop structure take longer computation time to excute. 
 
-         
+    
           '4) Loop through tickers
 
           For i = 0 To 11
@@ -24,7 +24,7 @@ The oringal code contains an outer loop, "i", that will iterate the tickers from
 
           For j = 2 To RowCount
               '5a) Get total volume for current ticker
-              If Cells(j, 1).Value = ticker Then
+               If Cells(j, 1).Value = ticker Then
 
                   totalVolume = totalVolume + Cells(j, 8).Value
 
@@ -43,6 +43,7 @@ The oringal code contains an outer loop, "i", that will iterate the tickers from
 
               End If
           Next j
+          
           '6) Output data for current ticker
           Worksheets("All Stocks Analysis").Activate
           Cells(4 + i, 1).Value = ticker
@@ -54,11 +55,11 @@ The oringal code contains an outer loop, "i", that will iterate the tickers from
 
 ### Refactored code
 
-The refactored code is faster because.
+The refactored code is faster because it only have one loop to excute.  First, "tinkerIndex" is set to zero.  Three output arrays are created for the three variables of the 11 tickers.  Loop "i" is created to interate over the tickerVolumes(i), and the intial "tickerVolumes" is reset to zero for each ticker.  Next, the code will loop over all the rows with three "If...Then" conditional statements to check for "tickerVolumes", "tickerStartingPrices", and "tickerEndingPrices" of 
+
 
     '1a) Create a ticker Index
-       tickerIndex = 0
-       
+       tickerIndex = 0     
 
     '1b) Create three output arrays
     Dim tickerVolumes(11) As Long
@@ -132,3 +133,7 @@ The refactored code is faster because.
 
 <img width="259" alt="VBA_Challenge_2018" src="https://user-images.githubusercontent.com/108419097/182451393-4877bde6-ad32-470b-b207-c85608ab98bb.png">
 
+## Summary
+
+The original code is more clean and easy to debugged. The variables are not in arrays, and less bookkeeping.  at the every iteration, the result will be display in the result sheet, which means that calculating and output are doing in the same time.  
+The refractored code is harder to debugged.  The varaibles are in arrays, it is harder to keep track of all the calculations.  The advantage of calcuating data in arrays makes the output easier. 
