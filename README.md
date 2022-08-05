@@ -7,6 +7,8 @@
 
 ## 2.  Results:  
 
+### Performance bet. 2017 and 2018
+
 ### The original code 
 
 The oringal code is less efficient because of its nested loop.  The code contains an outer loop, "i", that will iterate the tickers from 0 to 11. Here, the "totalVolume" is set to zero, so that it will reset for each outer loop.  The code also has an inner loop, "j", that will iterate all the rows from 2 to the last row.  For each of the row, it will undergo three "If ... Then" conditional statements, to check for "the current ticker volumn", "starting price" and "ending price" before it loops over to the next row.  Once the inner loop loops through all the rows.  It will start the next outer loop "i" , and repeat the code over and over again till i = 11.  This nested loop structure take longer computation time to excute. 
