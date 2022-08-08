@@ -2,14 +2,15 @@
 
 ## 1. Overview of Project:  Explain the purpose of this analysis
 
-   The background of the project is to prepare a VBA script to analyze the performance of a dozen stocks on the spreadsheet.  Since computing time is precious and the stock market has thousands of stocks.   The purpose of this analysis is to make the original code run more efficiently so that more stocks can be analyzed with less time.  
+  The project's background is to prepare a VBA script to analyze the performance of a dozen stocks on the spreadsheet.  Since computing time is precious and the stock market has thousands of stocks.   This analysis aims to make the original code run more efficiently so that more stocks can be analyzed in less time.  
+ 
  
 
 ## 2.  Results:  
 
 ### Performance of all stocks 
 
-The year 2017 was a pretty good year for growth.  All of the stocks (except ticker "TERP") had increased returns.  Ticker "DQ" had the most growth (199.4% of return).  However, compared to 2017, 2018 was a bad year for growth.  All of the stocks (except tickers "ENPH" AND "RUN") experienced negative growth.  
+The year 2017 was a pretty good year for growth. All the stocks (except for ticker "TERP") had increased returns. Ticker "DQ" had the most growth (199.4% of return). However, compared to 2017, 2018 was a lousy year for growth. All of the stocks (except for tickers "ENPH" AND "RUN") experienced negative growth (please see the tables below).
 
 <img width="717" alt="2017_vs_2018" src="https://user-images.githubusercontent.com/108419097/183156607-afef1953-ca71-422e-92ac-eefcf5fd5e6f.png">
 
@@ -62,7 +63,7 @@ The original code is less efficient because of its nested loop.  The code contai
 
 ### Refactored code
 
-The refactored code is faster because it only has one loop to execute.  First, "tinkerIndex" is set to zero.  Three output arrays are created for the three variables of the 11 tickers.  Loop "i" is created to iterate over the tickerVolumes(i), and the initial "tickerVolumes" is reset to zero for each ticker.  Next, the code will loop over all the rows with three "If...Then" conditional statements to check for "tickerVolumes", "tickerStartingPrices", and "tickerEndingPrices" of the curent tickerIndex before it moves on to the next tickerIndex (tickerIndex + 1). 
+The refactored code is faster because it has only one loop to execute.  First, "tinkerIndex" is set to zero.  Three output arrays are created for the three variables of the 11 tickers.  Loop "i" is created to iterate over the tickerVolumes(i), and the initial "tickerVolumes" is reset to zero for each ticker.  Next, the code will loop over all the rows with three "If...Then" conditional statements to check for "tickerVolumes", "tickerStartingPrices", and "tickerEndingPrices" of the curent tickerIndex before it moves on to the next tickerIndex (tickerIndex + 1). 
 
 
     '1a) Create a ticker Index
@@ -128,9 +129,7 @@ The refactored code is faster because it only has one loop to execute.  First, "
 
 ### Compare execution times of the original script and the refactored script:
 
-The original code for 2017 and 2018 took 0.273 and 0.305 seconds, respectively.
-The refactored code for 2017 and 2018 took 0.090 and 0.078 seconds, respectively.  
-Compared to the original code, the refactored code is about 3-times faster.  
+The original code for 2017 and 2018 took 0.273 and 0.305 seconds, respectively.  The refactored code for 2017 and 2018 took 0.090 and 0.078 seconds, respectively (please see the images below).  Compared to the original code, the refactored code is about 3-times faster.  
 
 
 ### Run-time for the orginal code (2017 and 2018):
@@ -149,8 +148,16 @@ Compared to the original code, the refactored code is about 3-times faster.
 
 ## Summary
 
+In general, refactored code is faster and more efficient. In finance, less computation time means more immediate conclusion and is helpful in today’s fast-paced economy. However, refactored code is more complex, harder to de-bugged, and error-prone. Therefore, the code must be carefully evaluated to ensure it performs as it should.  
 
-The refactored code is more efficient.  All of the variables are in arrays, therefore, the output is easier and the code runs faster.  However, the refactored code is more complex.  It is harder to de-construct and de-bugged.   The array output also makes it difficult to track all of the intermediate calculations.  
+The refactored code in this analysis is faster and more efficient than its original code. This is because all variables are in arrays. Therefore, the output is more straightforward, and the code runs faster. However, the array output makes it difficult to track all intermediate calculations and double-check numbers. Also, the refactored code is much harder to write and de-bugged structurally.   In contrast, the original code is much easier to write and de-bugged.
 
-In contrast, the original code is slower.   The variables are not in arrays, therefore, calculations and outputs are executed simultaneously.  Hence, the longer execution time.  However, it is a cleaner code and easy to de-bugged.  
+
+
+
+
+
+
+
+ 
 
