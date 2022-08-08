@@ -6,7 +6,7 @@
  
  
 
-## 2.  Results:  
+## 2.  Results  
 
 ### Performance of all stocks 
 
@@ -127,19 +127,19 @@ The refactored code is faster because it has only one loop to execute.  First, "
      Next
 
 
-### Compare execution times of the original script and the refactored script:
+### Compare execution times of the original script and the refactored script
 
 The original code for 2017 and 2018 took 0.273 and 0.305 seconds, respectively.  The refactored code for 2017 and 2018 took 0.090 and 0.078 seconds, respectively (please see the images below).  Compared to the original code, the refactored code is about 3-times faster.  
 
 
-### Run-time for the orginal code (2017 and 2018):
+### Run-time for the orginal code (2017 and 2018)
 
 <img width="256" alt="Screen Shot 2022-08-02 at 2 12 43 PM" src="https://user-images.githubusercontent.com/108419097/182449588-6a41be9f-a726-4e5a-966e-be58e0d502cf.png">
 
 <img width="254" alt="Screen Shot 2022-08-01 at 7 02 04 PM" src="https://user-images.githubusercontent.com/108419097/182449714-95d94b9b-211d-4db3-bdd7-b57dc89a1697.png">
 
 
-### Run-time for the refactored code (2017 and 2018): 
+### Run-time for the refactored code (2017 and 2018) 
 
 ![VBA_Challenge_2017](https://user-images.githubusercontent.com/108419097/183152917-2d7dee3c-cfb9-4938-a078-78567f2089fd.png)
 
